@@ -3,26 +3,26 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-input-button-units',
   template: `
-    <p>
-      input-button-units works!<br/>
-      The title is: {{title}}
-    </p>
+    <input #inputElementRef
+            [value]="title" 
+            (keyup.enter)="changeTitle($event.target.value)">
 
-    <input [value]="title">
-    <button (click)="changeTitle('Button Clicked !')">Save</button>
+    <button (click)="changeTitle(inputElementRef.value)">
+      Save
+    </button>
   `,
   styleUrls: ['./input-button-units.component.css']
 })
 export class InputButtonUnitsComponent implements OnInit {
   title: string = 'mon petit poney';
-  
-  constructor() {}
-  
-  
+
+  constructor() { }
+
+
   ngOnInit() {
   }
-  
-  changeTitle(newTitle: string){
+
+  changeTitle(newTitle: string) {
     this.title = newTitle;
   }
 }
