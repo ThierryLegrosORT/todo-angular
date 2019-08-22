@@ -11,7 +11,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
     <button 
     class="btn"
     (click)="submitValue(inputElementRef.value)">
-      Save
+      Add
     </button>
   `,
   styleUrls: ['./input-button-units.component.css']
@@ -19,7 +19,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class InputButtonUnitsComponent implements OnInit {
   @Output() submit: EventEmitter<string> = new EventEmitter();
 
-  title: string = 'mon petit poney';
+  title: string = 'Replace content here then click add button';
 
   constructor() { }
 
