@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
+import { TodoItem } from './interfaces/todo-item';
 
 @Component({
   selector: 'app-root',
-  // templateUrl: './app.component.html',
   template: `
   <h1>
   Welcome to {{ title }}
   </h1>
 
-  <app-input-button-units></app-input-button-units>
+  <app-input-button-units (submit)="addItem($event)"></app-input-button-units>
   <ul>
     <li *ngFor="let todoItem of todoList">
       <app-todo-item [item]="todoItem"></app-todo-item>
@@ -18,8 +18,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'My ToDo-List';
-  todoList = [
+  title = 'app';
+  todoList: TodoItem[] = [
     {title: 'install NodeJS'},
     {title: 'install Angular CLI'},
     {title: 'create new app'},
@@ -27,4 +27,7 @@ export class AppComponent {
     {title: 'develop app'},
     {title: 'deploy app'},
   ];
+  addItem(title: string){
+    this.todoList.push({title});
+  }
 }
