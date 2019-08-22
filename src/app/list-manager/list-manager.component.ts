@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TodoItem } from '../interfaces/todo-item';
 
 @Component({
@@ -13,7 +13,7 @@ import { TodoItem } from '../interfaces/todo-item';
   `,
   styleUrls: ['./list-manager.component.css']
 })
-export class ListManagerComponent {
+export class ListManagerComponent implements OnInit {
   todoList: TodoItem[] = [
     {title: 'install NodeJS'},
     {title: 'install Angular CLI'},
@@ -22,6 +22,13 @@ export class ListManagerComponent {
     {title: 'develop app'},
     {title: 'deploy app'},
   ];
+
+  constructor(){}
+
+  ngOnInit(){
+
+  }
+
   addItem(title: string){
     this.todoList.push({title});
   }
